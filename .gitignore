@@ -64,3 +64,9 @@ Assets/Plugins*
 
 # Visual Studio Code
 .vscode/
+.DS_Store
+Assets/.DS_Store
+Assets/Oculus/.DS_Store
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/ProjectSettings.asset
+UserSettings/Layouts/default-2021.dwlt
