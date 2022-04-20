@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -234,28 +234,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 461607497}
-  - component: {fileID: 461607496}
   m_Layer: 0
-  m_Name: EnemySpawnLocation1
+  m_Name: EnemySpawnLocation(Center)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &461607496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461607495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57591a9f52ae74e1999aa2292b932f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyOne: {fileID: 231169541519204306, guid: 743e432be4f2b4b82b9a1785a9234c04, type: 3}
-  enemySpawnCount1: 4
 --- !u!4 &461607497
 Transform:
   m_ObjectHideFlags: 0
@@ -264,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461607495}
   m_LocalRotation: {x: -0.12904222, y: -0, z: -0, w: 0.99163914}
-  m_LocalPosition: {x: 0, y: 0, z: 7.32}
+  m_LocalPosition: {x: 0, y: 0, z: 19.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -282,12 +267,12 @@ GameObject:
   - component: {fileID: 599985909}
   - component: {fileID: 599985908}
   m_Layer: 0
-  m_Name: EnemySpawnLocation3
+  m_Name: EnemySpawnLocation(Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &599985908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyOne: {fileID: 231169541519204306, guid: 743e432be4f2b4b82b9a1785a9234c04, type: 3}
-  enemySpawnCount1: 4
+  enemySpawnCount: 0
+  enemySpawnCount2: 0
+  enemySpawnCount3: 0
+  spawnPoint: {fileID: 0}
+  waveNum: 0
 --- !u!4 &599985909
 Transform:
   m_ObjectHideFlags: 0
@@ -309,14 +298,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599985907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.22, y: 0, z: 7.32}
+  m_LocalRotation: {x: 0, y: 0.12186928, z: 0, w: 0.9925462}
+  m_LocalPosition: {x: 5, y: 0, z: 19.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 14, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,12 +604,12 @@ GameObject:
   - component: {fileID: 843850569}
   - component: {fileID: 843850568}
   m_Layer: 0
-  m_Name: EnemySpawnLocation3
+  m_Name: EnemySpawnLocation(left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &843850568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +623,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyOne: {fileID: 231169541519204306, guid: 743e432be4f2b4b82b9a1785a9234c04, type: 3}
-  enemySpawnCount1: 4
+  enemySpawnCount: 0
+  enemySpawnCount2: 0
+  enemySpawnCount3: 0
+  spawnPoint: {fileID: 0}
+  waveNum: 0
 --- !u!4 &843850569
 Transform:
   m_ObjectHideFlags: 0
@@ -642,14 +635,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843850567}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.22, y: 0, z: 7.32}
+  m_LocalRotation: {x: 0, y: -0.12186928, z: 0, w: 0.9925462}
+  m_LocalPosition: {x: -5, y: 0, z: 19.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -14, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62bd9dec328b309488b1fd1a78738001, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.91
+      value: 4.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62bd9dec328b309488b1fd1a78738001, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5767,6 +5760,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
+--- !u!1 &1727676604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727676606}
+  - component: {fileID: 1727676605}
+  m_Layer: 0
+  m_Name: Enemy Wave Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1727676605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727676604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57591a9f52ae74e1999aa2292b932f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyOne: {fileID: 231169541519204306, guid: 743e432be4f2b4b82b9a1785a9234c04, type: 3}
+  enemySpawnCount: 4
+  enemySpawnCount2: 5
+  enemySpawnCount3: 6
+  spawnPoint: {fileID: 461607497}
+  waveNum: 0
+--- !u!4 &1727676606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727676604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1761639172
 PrefabInstance:
   m_ObjectHideFlags: 0

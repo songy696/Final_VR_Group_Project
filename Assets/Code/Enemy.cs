@@ -11,14 +11,19 @@ public class Enemy : MonoBehaviour
     private void Start() 
     {
         enemyRb = GetComponent<Rigidbody>();
-        random = Random.Range(3f, 15f);
-        randomSpeed = Random.Range(.5f, 1f);
+        random = Random.Range(3f, 5f);
+        randomSpeed = Random.Range(.2f, .5f);
         startPosition = transform.position.x;
     }
 
     void Update() 
     {
         Movement();
+
+        if(transform.position.z < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Movement()
