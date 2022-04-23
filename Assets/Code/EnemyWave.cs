@@ -12,8 +12,6 @@ public class EnemyWave : MonoBehaviour
     public int enemySpawnCount3;
 
     public Transform spawnPoint;
-    //public Transform spawnPointLeft;
-    //public Transform spawnPointRight;
 
     public int waveNum;
 
