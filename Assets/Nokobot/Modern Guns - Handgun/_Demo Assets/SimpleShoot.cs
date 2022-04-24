@@ -20,9 +20,14 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
+    private OVRGrabbable ovrGrabbable; 
+    public OVRInput.Button shootingBtn;
+
 
     void Start()
     {
+        ovrGrabbable = GetComponent<OVRGrabbable>();
+
         if (barrelLocation == null)
             barrelLocation = transform;
 
@@ -33,7 +38,7 @@ public class SimpleShoot : MonoBehaviour
     void Update()
     {
         //If you want a different input, change it here
-        if (Input.GetButtonDown("Fire1"))
+        if (ovrGrabbable.isGrabbed && OVRInput.GetDown(shootingBtn, ovrGrabbable.grabbedBy.GetController()))
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
@@ -61,6 +66,7 @@ public class SimpleShoot : MonoBehaviour
         // Create a bullet and add force on it in direction of the barrel
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 
+        Destroy(bulletPrefab, destroyTimer*2); //I might remove this later
     }
 
     //This function creates a casing at the ejection slot
