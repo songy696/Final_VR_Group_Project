@@ -18,7 +18,7 @@ public class EnemyWave : MonoBehaviour
     void Start() 
     {
         StartCoroutine(spawnEnemy1(enemyOne));
-        InvokeRepeating("EnemyCheck", 1, 5);
+       InvokeRepeating("EnemyCheck", 5, 5);
         waveNum = 1;
     }
 
@@ -31,10 +31,10 @@ public class EnemyWave : MonoBehaviour
             StartCoroutine(spawnEnemy2(enemyOne));
             waveNum = 2;
         }
-        else if (waveNum == 2 && enemiesLeft < 2)
+        else if (waveNum == 2 && enemiesLeft < 1)
         {
             StartCoroutine(spawnEnemy3(enemyOne));
-            waveNum = 1;
+            waveNum = 3;
         }
     }
 
