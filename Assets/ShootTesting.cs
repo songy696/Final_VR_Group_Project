@@ -1,9 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
-public class SimpleShoot : MonoBehaviour
+public class ShootTesting : MonoBehaviour
 {
     [Header("Prefab Refrences")]
     public GameObject bulletPrefab;
@@ -20,13 +19,9 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
-    private OVRGrabbable ovrGrabbable; 
-    public OVRInput.Button shootingBtn;
-
 
     void Start()
-    {
-        ovrGrabbable = GetComponent<OVRGrabbable>();
+    { 
 
         if (barrelLocation == null)
             barrelLocation = transform;
@@ -38,10 +33,11 @@ public class SimpleShoot : MonoBehaviour
     void Update()
     {
         //If you want a different input, change it here
-        if (ovrGrabbable.isGrabbed && OVRInput.GetDown(shootingBtn, ovrGrabbable.grabbedBy.GetController()))
-        {
+        if (Input.GetButtonDown("Fire1")) {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
+            Shoot();
+            CasingRelease();
         }
     }
 
@@ -67,7 +63,7 @@ public class SimpleShoot : MonoBehaviour
         //Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
         Instantiate(bulletPrefab, barrelLocation.position, Quaternion.identity).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 
-        Destroy(bulletPrefab, destroyTimer*2); //I might remove this later
+        Destroy(bulletPrefab, destroyTimer * 2); //I might remove this later
     }
 
     //This function creates a casing at the ejection slot
@@ -88,5 +84,4 @@ public class SimpleShoot : MonoBehaviour
         //Destroy casing after X seconds
         Destroy(tempCasing, destroyTimer);
     }
-
 }
