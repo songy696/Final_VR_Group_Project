@@ -31,10 +31,10 @@ public class EnemyWave : MonoBehaviour
             StartCoroutine(spawnEnemy2(enemyOne));
             waveNum = 2;
         }
-        else if (waveNum == 2 && enemiesLeft < 2)
+        else if (waveNum == 2 && enemiesLeft < 1)
         {
             StartCoroutine(spawnEnemy3(enemyOne));
-            waveNum = 1;
+            waveNum = 3;
         }
     }
 
