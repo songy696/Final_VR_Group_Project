@@ -18,7 +18,7 @@ public class EnemyWave : MonoBehaviour
     void Start() 
     {
         StartCoroutine(spawnEnemy1(enemyOne));
-        InvokeRepeating("EnemyCheck", 1, 5);
+       InvokeRepeating("EnemyCheck", 5, 5);
         waveNum = 1;
     }
 
