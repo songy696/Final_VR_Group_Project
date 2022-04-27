@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GunTest.unity
     guid: 03fca07a8a7d34a74a1ca2a6460169e4
+  - enabled: 0
+    path: Assets/Scenes/ShootingFunction.unity
+    guid: 482a6ecd521b14846b4fb23242780bff
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 37ee028014b9f1443b7d1f233c2c3b5a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9d780349ade561b43ab05a2bc86973e1, type: 2}
