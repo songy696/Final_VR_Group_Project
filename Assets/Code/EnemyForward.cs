@@ -5,13 +5,22 @@ public class EnemyForward : MonoBehaviour
 {
     public float speed;
     public int enemyLife;
+
     Animator enemyAnimation;
+    Rigidbody rb;
 
     private bool isMoving;
+    private bool isAttacking;
 
     void Start() 
     {
         enemyAnimation = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        Attack(other.gameObject);
     }
     
     void Update() 
@@ -21,12 +30,18 @@ public class EnemyForward : MonoBehaviour
 
     void Movement()
     {
+        isAttacking = false;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         enemyAnimation.SetBool("isMoving", true);
     }
 
-    // void StopMovement()
-    // {
-
-    // }
+    void Attack(GameObject other)
+    {
+        if(other.tag == "Tower")
+        {
+            isMoving = false;
+            speed = 0;
+            enemyAnimation.SetBool("isAttacking", true);
+        }
+    }
 }

@@ -10,25 +10,19 @@ public class GameManager : MonoBehaviour
     
     int[] towerHealth;
     public RectTransform[] healthBars;
-    public TextMeshProUGUI[] healthText;
 
     void Start()
     {
         towerHealth = new int[towerInGame];
         for (int i = 0; i < towerHealth.Length; i++)
         {
-            towerHealth[i] = 100;
+            towerHealth[i] = 200;
         }
     }
 
     public bool UpdateHealth(int hitTower, int damage)
     {
         towerHealth[hitTower] -= damage;
-        if (towerHealth[hitTower] < 0){
-            towerHealth[hitTower] = 0;
-        }
-        
-        healthText[hitTower].text = towerHealth[hitTower] + "%";
         healthBars[hitTower].localScale = new Vector3(towerHealth[hitTower] * .01f, 1, 1);
         
         if (towerHealth[hitTower] > 0)
@@ -44,11 +38,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //    void CheckRoundOver()
+    // void CheckRoundOver()
     // {
     //     if (towerInGame < 1)
     //     {
-    //         StartCoroutine(WaitToLoad());
     //         SceneManager.LoadScene(DeadScene);
     //     }
     // }
