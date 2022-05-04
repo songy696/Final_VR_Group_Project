@@ -16,7 +16,7 @@ public class EnemyForward : MonoBehaviour
         enemyAnimation = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "Tower")
         {
