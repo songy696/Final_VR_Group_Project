@@ -23,9 +23,15 @@ public class SimpleShoot : MonoBehaviour
     private OVRGrabbable ovrGrabbable; 
     public OVRInput.Button shootingBtn;
 
+    //public AudioSource audiosource;
+    //public AudioClip clip;
+
 
     void Start()
     {
+        //audiosource = GetComponent<AudioSource>();
+        //audiosource.clip = clip;
+
         ovrGrabbable = GetComponent<OVRGrabbable>();
 
         if (barrelLocation == null)
@@ -33,6 +39,7 @@ public class SimpleShoot : MonoBehaviour
 
         if (gunAnimator == null)
             gunAnimator = GetComponentInChildren<Animator>();
+            
     }
 
     void Update()
@@ -42,6 +49,7 @@ public class SimpleShoot : MonoBehaviour
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
+            RaycastGun();
         }
     }
 
@@ -87,6 +95,19 @@ public class SimpleShoot : MonoBehaviour
 
         //Destroy casing after X seconds
         Destroy(tempCasing, destroyTimer);
+    }
+
+    void RaycastGun()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast (barrelLocation.position, barrelLocation.forward, out hit))
+        {
+            if(hit.collider.gameObject.CompareTag("Enemy"));
+            {
+                Destroy(hit.collider.gameObject);
+            }
+        }
     }
 
 }
