@@ -36,7 +36,7 @@ public class EnemyForward : MonoBehaviour
         enemyAnimation.SetBool("isMoving", true);
     }
 
-    void Attack(GameObject other)
+    void Attack()
     {
         isMoving = false;
         isAttacking = true;
