@@ -7,7 +7,6 @@ public class EnemyForward : MonoBehaviour
     public int enemyLife;
 
     Animator enemyAnimation;
-    Rigidbody rb;
 
     private bool isMoving;
     private bool isAttacking;
@@ -15,12 +14,14 @@ public class EnemyForward : MonoBehaviour
     void Start() 
     {
         enemyAnimation = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision other) 
     {
-        Attack(other.gameObject);
+        if(other.gameObject.tag == "Tower")
+        {
+            Attack();
+        }
     }
     
     void Update() 
@@ -37,11 +38,9 @@ public class EnemyForward : MonoBehaviour
 
     void Attack(GameObject other)
     {
-        if(other.tag == "Tower")
-        {
-            isMoving = false;
-            speed = 0;
-            enemyAnimation.SetBool("isAttack", true);
-        }
+        isMoving = false;
+        isAttacking = true;
+        speed = 0;
+        enemyAnimation.SetBool("isAttack", true);
     }
 }
