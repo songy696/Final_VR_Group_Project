@@ -103,7 +103,7 @@ public class SimpleShoot : MonoBehaviour
 
         if(Physics.Raycast (barrelLocation.position, barrelLocation.forward, out hit))
         {
-            if(hit.collider.gameObject.CompareTag("Enemy"));
+            if (hit.collider.gameObject.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
             }
