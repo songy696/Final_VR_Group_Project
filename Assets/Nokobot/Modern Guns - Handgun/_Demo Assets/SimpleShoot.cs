@@ -23,14 +23,16 @@ public class SimpleShoot : MonoBehaviour
     private OVRGrabbable ovrGrabbable; 
     public OVRInput.Button shootingBtn;
 
-    //public AudioSource audiosource;
-    //public AudioClip clip;
+    public AudioSource audiosource;
+    public AudioClip clip;
+
+    public AudioClip enemyDieSound;
 
 
     void Start()
     {
-        //audiosource = GetComponent<AudioSource>();
-        //audiosource.clip = clip;
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = clip;
 
         ovrGrabbable = GetComponent<OVRGrabbable>();
 
@@ -62,7 +64,7 @@ public class SimpleShoot : MonoBehaviour
             //Create the muzzle flash
             GameObject tempFlash;
             tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
+            audiosource.PlayOneShot(clip);
             //Destroy the muzzle flash effect
             Destroy(tempFlash, destroyTimer);
         }
@@ -106,6 +108,7 @@ public class SimpleShoot : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
+                audiosource.PlayOneShot(enemyDieSound);
             }
         }
     }
