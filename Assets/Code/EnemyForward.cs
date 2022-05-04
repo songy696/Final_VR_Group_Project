@@ -41,7 +41,7 @@ public class EnemyForward : MonoBehaviour
         {
             isMoving = false;
             speed = 0;
-            enemyAnimation.SetBool("isAttacking", true);
+            enemyAnimation.SetBool("isAttack", true);
         }
     }
 }
