@@ -4,8 +4,6 @@ using UnityEngine;
 public class EnemyWave : MonoBehaviour
 {
     public GameObject enemyObj;
-    public GameObject enemyObj2;
-    public GameObject enemyObj3;
 
     public int enemySpawnBase = 3;
     public int enemySpawnAdd = 0;
@@ -14,7 +12,7 @@ public class EnemyWave : MonoBehaviour
 
     void Start() 
     {
-       StartCoroutine(spawnEnemy(enemyObj));
+       //StartCoroutine(spawnEnemy(enemyObj));
        InvokeRepeating("EnemyCheck", 5, 5);
     }
 
@@ -25,7 +23,6 @@ public class EnemyWave : MonoBehaviour
         if (enemiesLeft < 1)
         {
             StartCoroutine(spawnEnemy(enemyObj));
-            enemySpawnAdd++;
         }
     }
 
@@ -41,6 +38,7 @@ public class EnemyWave : MonoBehaviour
 
             yield return new WaitForSeconds(.5f);
         }
+
     }
 
 }
