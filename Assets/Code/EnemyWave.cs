@@ -3,46 +3,35 @@ using UnityEngine;
 
 public class EnemyWave : MonoBehaviour
 {
-    public GameObject enemyOne;
-    // public GameObject enemyTwo;
-    // public GameObject enemyThree;
+    public GameObject enemyObj;
 
-    public int enemySpawnCount;
-    public int enemySpawnCount2;
-    public int enemySpawnCount3;
+    public int enemySpawnBase = 3;
+    public int enemySpawnAdd = 0;
 
     public Transform spawnPoint;
 
-    public int waveNum;
-
     void Start() 
     {
-        StartCoroutine(spawnEnemy1(enemyOne));
+       StartCoroutine(spawnEnemy(enemyObj));
        InvokeRepeating("EnemyCheck", 5, 5);
-        waveNum = 1;
     }
 
     void EnemyCheck()
     {
         int enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //print(enemiesLeft);
-        if (waveNum == 1 && enemiesLeft < 1)
+        if (enemiesLeft < 1)
         {
-            StartCoroutine(spawnEnemy2(enemyOne));
-            waveNum = 2;
-        }
-        else if (waveNum == 2 && enemiesLeft < 1)
-        {
-            StartCoroutine(spawnEnemy3(enemyOne));
-            waveNum = 3;
+            StartCoroutine(spawnEnemy(enemyObj));
+            enemySpawnAdd++;
         }
     }
 
-    IEnumerator spawnEnemy1(GameObject enemy)
+    IEnumerator spawnEnemy(GameObject enemy)
     {
         yield return new WaitForSeconds(1f);
 
-        for(int i = 0; i < enemySpawnCount; i++)
+        for(int i = 0; i < enemySpawnBase + enemySpawnAdd; i++)
         {
             GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnPoint.position.x - 5f, spawnPoint.position.x + 5f), 
                                                      spawnPoint.position.y, 
@@ -52,29 +41,4 @@ public class EnemyWave : MonoBehaviour
         }
     }
 
-     IEnumerator spawnEnemy2(GameObject enemy)
-     {
-        yield return new WaitForSeconds(1f);
-
-         for(int i = 0; i < enemySpawnCount2; i++)
-         {
-            GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnPoint.position.x - 5f, spawnPoint.position.x + 5f),
-                                                    spawnPoint.position.y,
-                                                    spawnPoint.position.z), Quaternion.identity);
-            yield return new WaitForSeconds(.5f);
-         }
-     }
-
-     IEnumerator spawnEnemy3(GameObject enemy)
-     {
-         yield return new WaitForSeconds(1f);
-
-         for(int i = 0; i < enemySpawnCount3; i++)
-         {
-            GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnPoint.position.x - 5f, spawnPoint.position.x + 5f),
-                                                    spawnPoint.position.y,
-                                                    spawnPoint.position.z), Quaternion.identity);
-            yield return new WaitForSeconds(.5f);
-         }
-     }
 }
