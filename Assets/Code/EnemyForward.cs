@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyForward : MonoBehaviour
 {
     public float speed;
-    public int enemyLife;
 
     Animator enemyAnimation;
 
