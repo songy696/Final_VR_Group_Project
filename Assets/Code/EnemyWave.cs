@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyWave : MonoBehaviour
 {
     public GameObject enemyObj;
+    public GameObject enemyObj2;
+    public GameObject enemyObj3;
 
     public int enemySpawnBase = 3;
     public int enemySpawnAdd = 0;
