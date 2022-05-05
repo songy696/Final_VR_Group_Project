@@ -33,7 +33,7 @@ public class EnemyDeath : MonoBehaviour
         enemyLife --;
         animation.SetBool("isHurt", true);
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(3f);
 
         isHurt = false;
     }
@@ -43,7 +43,7 @@ public class EnemyDeath : MonoBehaviour
         isDead = true;
         animation.SetBool("isDead", true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
 
         Destroy(gameObject);
     }

@@ -15,7 +15,7 @@ public class TowerHealth : MonoBehaviour
         gm = FindObjectOfType<GameManager>();  
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
         TowerHit(other.gameObject);
     }
 
