@@ -9,6 +9,8 @@ public class EnemyWave : MonoBehaviour
     public int enemySpawnBase = 3;
     public int enemySpawnAdd = 0;
 
+    public int wave;
+
     public Transform spawnPoint;
 
     void Start() 
@@ -21,10 +23,12 @@ public class EnemyWave : MonoBehaviour
     {
         int enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //print(enemiesLeft);
-        if (enemiesLeft < 2)
+        if (enemiesLeft < 1)
         {
             StartCoroutine(spawnEnemy(enemyObj));
-        } else if (enemiesLeft <1)
+        }
+
+        if (wave == 2)
         {
             StartCoroutine(spawnEnemy(bossObj));
         }
@@ -40,9 +44,10 @@ public class EnemyWave : MonoBehaviour
                                                      spawnPoint.position.y, 
                                                      spawnPoint.position.z), Quaternion.identity);
 
+            wave++;
+
             yield return new WaitForSeconds(.5f);
         }
-
     }
 
 }

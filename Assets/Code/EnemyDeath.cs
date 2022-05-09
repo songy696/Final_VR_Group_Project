@@ -23,7 +23,7 @@ public class EnemyDeath : MonoBehaviour
             StartCoroutine(hurt());
         } else if (enemyLife < 1)
         {
-            StartCoroutine(Dead());
+            Dead();
         }
     }
 
@@ -38,13 +38,9 @@ public class EnemyDeath : MonoBehaviour
         isHurt = false;
     }
 
-    IEnumerator Dead()
+    void Dead()
     {
         isDead = true;
         animation.SetBool("isDead", true);
-
-        yield return new WaitForSeconds(10f);
-
-        Destroy(gameObject);
     }
 }
