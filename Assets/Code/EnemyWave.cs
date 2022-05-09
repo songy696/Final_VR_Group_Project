@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyWave : MonoBehaviour
 {
     public GameObject enemyObj;
+    public GameObject bossObj;
 
     public int enemySpawnBase = 3;
     public int enemySpawnAdd = 0;
@@ -12,7 +13,7 @@ public class EnemyWave : MonoBehaviour
 
     void Start() 
     {
-       //StartCoroutine(spawnEnemy(enemyObj));
+       StartCoroutine(spawnEnemy(enemyObj));
        InvokeRepeating("EnemyCheck", 5, 5);
     }
 
@@ -20,9 +21,12 @@ public class EnemyWave : MonoBehaviour
     {
         int enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //print(enemiesLeft);
-        if (enemiesLeft < 1)
+        if (enemiesLeft < 2)
         {
             StartCoroutine(spawnEnemy(enemyObj));
+        } else if (enemiesLeft <1)
+        {
+            StartCoroutine(spawnEnemy(bossObj));
         }
     }
 
