@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         towerHealth = new int[towerInGame];
         for (int i = 0; i < towerHealth.Length; i++)
         {
-            towerHealth[i] = 200;
+            towerHealth[i] = 100;
         }
     }
 
