@@ -6,7 +6,7 @@ public class Restart : MonoBehaviour
 {
     private void Update() 
     {
-        if(Input.GetButtonDown("Button.One")) {
+        if(Input.GetButtonDown("0")) {
                 SceneManager.LoadScene("Game2");
             }
     }
