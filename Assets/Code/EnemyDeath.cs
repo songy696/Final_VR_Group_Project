@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    Animator animation;
+    public Animator animation;
 
     private bool isDead;
     private bool isHurt;
@@ -21,9 +21,11 @@ public class EnemyDeath : MonoBehaviour
         if(!isDead && other.gameObject.tag == "Bullet")
         {
             StartCoroutine(hurt());
-        } else if (enemyLife < 1)
+        }
+        
+        if(isDead && enemyLife < 1)
         {
-            Dead();
+            StartCoroutine(dead());
         }
     }
 
@@ -31,16 +33,20 @@ public class EnemyDeath : MonoBehaviour
     {
         isHurt = true;
         enemyLife --;
-        animation.SetBool("isHurt", true);
+        animation.Play("hurt");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         isHurt = false;
     }
 
-    void Dead()
+    IEnumerator dead()
     {
         isDead = true;
-        animation.SetBool("isDead", true);
+        animation.Play("die");
+
+        yield return new WaitForSeconds(1.1f);
+
+        Destroy(gameObject);
     }
 }
