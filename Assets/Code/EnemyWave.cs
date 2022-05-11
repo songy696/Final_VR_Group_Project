@@ -8,8 +8,7 @@ public class EnemyWave : MonoBehaviour
 
     public int enemySpawnBase = 3;
     public int enemySpawnAdd = 0;
-
-    public int wave;
+    public int roundCounter = 0;
 
     public Transform spawnPoint;
 
@@ -22,15 +21,16 @@ public class EnemyWave : MonoBehaviour
     void EnemyCheck()
     {
         int enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        int bossLeft = GameObject.FindGameObjectsWithTag("Boss").Length;
         //print(enemiesLeft);
+        if ((bossLeft == 0) && (roundCounter % 3) == 0 && (roundCounter >= 2))
+        {
+            StartCoroutine(spawnBoss(bossObj));
+        }
+
         if (enemiesLeft < 1)
         {
             StartCoroutine(spawnEnemy(enemyObj));
-        }
-
-        if (wave == 2)
-        {
-            StartCoroutine(spawnEnemy(bossObj));
         }
     }
 
@@ -44,10 +44,23 @@ public class EnemyWave : MonoBehaviour
                                                      spawnPoint.position.y, 
                                                      spawnPoint.position.z), Quaternion.identity);
 
-            wave++;
+            roundCounter++;
 
             yield return new WaitForSeconds(.5f);
         }
+    }
+
+    IEnumerator spawnBoss(GameObject enemy)
+    {
+        yield return new WaitForSeconds(1f);
+
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnPoint.position.x - 5f, spawnPoint.position.x + 5f), 
+                                                     spawnPoint.position.y, 
+                                                     spawnPoint.position.z), Quaternion.identity);
+
+
+        yield return new WaitForSeconds(.5f);
+        
     }
 
 }
