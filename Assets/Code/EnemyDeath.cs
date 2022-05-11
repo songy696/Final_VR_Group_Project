@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     public Animator animation;
+    // public AudioSource audio;
 
     private bool isDead;
     private bool isHurt;
@@ -14,6 +15,7 @@ public class EnemyDeath : MonoBehaviour
     {
         isDead = false;
         animation = GetComponent<Animator>();
+        // audio = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision other) 
@@ -44,6 +46,7 @@ public class EnemyDeath : MonoBehaviour
     {
         isDead = true;
         animation.Play("die");
+        // audio.Play();
 
         yield return new WaitForSeconds(1.1f);
 
