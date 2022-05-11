@@ -16,6 +16,16 @@ public class EnemyDeath : MonoBehaviour
         isDead = false;
         animation = GetComponent<Animator>();
         // audio = GetComponent<AudioSource>();
+
+        if(this.gameObject.CompareTag("Boss"))
+        {
+            enemyLife = 5;
+        }
+
+        if(this.gameObject.CompareTag("Enemy"))
+        {
+            enemyLife = 2;
+        }
     }
 
     private void OnCollisionEnter(Collision other) 
@@ -34,7 +44,7 @@ public class EnemyDeath : MonoBehaviour
     IEnumerator hurt()
     {
         isHurt = true;
-        enemyLife --;
+        enemyLife--;
         animation.Play("hurt");
 
         yield return new WaitForSeconds(2f);
