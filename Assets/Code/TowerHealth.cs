@@ -26,7 +26,18 @@ public class TowerHealth : MonoBehaviour
                 alive = gm.UpdateHealth(playerNum - 1, 10);
                 if(alive){
                     StartCoroutine(GotHurt());
-                } else{
+                }else{
+                    StartCoroutine(Dead());
+                }
+            }
+        }
+
+        if (alive && !hurt){
+            if(other.tag == "Boss"){
+                alive = gm.UpdateHealth(playerNum - 1, 30);
+                if(alive){
+                    StartCoroutine(GotHurt());
+                }else{
                     StartCoroutine(Dead());
                 }
             }
@@ -37,7 +48,7 @@ public class TowerHealth : MonoBehaviour
     {
         hurt = true;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
 
         hurt = false;
     }

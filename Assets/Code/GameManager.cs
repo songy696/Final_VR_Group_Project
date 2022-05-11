@@ -33,16 +33,16 @@ public class GameManager : MonoBehaviour
         {
             towerHealth[hitTower] = 0;
             towerInGame--;
-            // CheckRoundOver();
+            CheckRoundOver();
             return false;
         }
     }
 
-    // void CheckRoundOver()
-    // {
-    //     if (towerInGame < 1)
-    //     {
-    //         SceneManager.LoadScene(DeadScene);
-    //     }
-    // }
+    void CheckRoundOver()
+    {
+        if (towerInGame < 1)
+        {
+            SceneManager.LoadScene(DeadScene);
+        }
+    }
 }

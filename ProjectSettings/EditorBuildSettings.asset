@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Oculus/SampleFramework/Usage/HandsInteractionTrainScene.unity
     guid: a9c41884ef0c347628dfd8a4af4a022e
   - enabled: 0
-    path: Assets/Scenes/Game.unity
+    path: 
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/GunTest.unity
+    path: 
     guid: 03fca07a8a7d34a74a1ca2a6460169e4
   - enabled: 0
     path: Assets/Scenes/ShootingFunction.unity
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game2.unity
     guid: b8fe5c1390afa414ab178969f530a42c
+  - enabled: 1
+    path: Assets/Scenes/DeadScene.unity
+    guid: 29368af52b0ed4f30b99266eb4bdc6f1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 37ee028014b9f1443b7d1f233c2c3b5a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9d780349ade561b43ab05a2bc86973e1, type: 2}

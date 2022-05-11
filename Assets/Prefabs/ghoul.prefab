@@ -1030,7 +1030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  enemyLife: 2
 --- !u!64 &-9073819786551549858
 MeshCollider:
   m_ObjectHideFlags: 0
