@@ -5520,6 +5520,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 841167056, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
+      propertyPath: m_gripTransform
+      value: 
+      objectReference: {fileID: 1587485443}
+    - target: {fileID: 841167056, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
+      propertyPath: m_obstructionLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594734794769154532, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0363
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594827028688980513, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0363
+      objectReference: {fileID: 0}
     - target: {fileID: 6599441592387157316, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
       propertyPath: _trackingOriginType
       value: 0
@@ -5604,6 +5620,11 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587485441}
   m_Enabled: 1
+--- !u!4 &1587485443 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6594827028688980513, guid: 4403381bdddf74093852e7a84d68555c, type: 3}
+  m_PrefabInstance: {fileID: 1587485440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1622820982
 PrefabInstance:
   m_ObjectHideFlags: 0
