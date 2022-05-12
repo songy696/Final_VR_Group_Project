@@ -23,7 +23,7 @@ public class TowerHealth : MonoBehaviour
     {
         if (alive && !hurt){
             if(other.tag == "Enemy"){
-                alive = gm.UpdateHealth(playerNum - 1, 10);
+                gm.TakeDamage(10);
                 if(alive){
                     StartCoroutine(GotHurt());
                 }else{
@@ -34,8 +34,8 @@ public class TowerHealth : MonoBehaviour
 
         if (alive && !hurt){
             if(other.tag == "Boss"){
-                alive = gm.UpdateHealth(playerNum - 1, 30);
-                if(alive){
+                gm.TakeDamage(30);
+                if (alive){
                     StartCoroutine(GotHurt());
                 }else{
                     StartCoroutine(Dead());
