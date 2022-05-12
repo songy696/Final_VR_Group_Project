@@ -4,7 +4,8 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     public Animator animation;
-    // public AudioSource audio;
+    // public GameObject deathExplosion; //use enemy_death_skull
+    // public GameObject hurtExplosion; //use hit-misc-b
 
     private bool isDead;
     private bool isHurt;
@@ -44,6 +45,7 @@ public class EnemyDeath : MonoBehaviour
     IEnumerator hurt()
     {
         animation.SetTrigger("isHurt");
+        // Instantiate(hurtExplosion, transform.position, Quaternion.identity);
         isHurt = true;
         enemyLife--;
         
@@ -56,5 +58,7 @@ public class EnemyDeath : MonoBehaviour
     {
         isDead = true;
         animation.SetTrigger("isDead");
+        // Instantiate(deathExplosion, transform.position, Quaternion.identity);
+        // Destroy(gameObject);
     }
 }
