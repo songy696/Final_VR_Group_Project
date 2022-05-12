@@ -128,6 +128,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95848721263463846, guid: 0242aa8515b4bc947a945a5c6df83ee9, type: 3}
   m_PrefabInstance: {fileID: 6599441592024397147}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &6594827028688980513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4614737286119290, guid: 0242aa8515b4bc947a945a5c6df83ee9, type: 3}
+  m_PrefabInstance: {fileID: 6599441592024397147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6597825358368195145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1620805885933330, guid: 0242aa8515b4bc947a945a5c6df83ee9, type: 3}
@@ -149,7 +154,7 @@ MonoBehaviour:
   grabEnd: 0.35
   m_parentHeldObject: 0
   m_moveHandPosition: 0
-  m_gripTransform: {fileID: 6594734794769154532}
+  m_gripTransform: {fileID: 6594827028688980513}
   m_grabVolumes:
   - {fileID: 6589087358038496204}
   - {fileID: 6517191232421199406}
@@ -164,7 +169,7 @@ MonoBehaviour:
   m_objectPullVelocity: 10
   m_maxGrabDistance: 2
   m_grabObjectsInLayer: 6
-  m_obstructionLayer: -1
+  m_obstructionLayer: 0
 --- !u!1001 &6599441592392699398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +179,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Name
-      value: OVRPlayerController
+      value: OVRPlayerController Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_TagString
@@ -223,14 +228,6 @@ PrefabInstance:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: _trackingOriginType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: m_Height
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Radius
@@ -387,10 +384,5 @@ Animator:
 --- !u!64 &6589087358038496204 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 64397448320254550, guid: 6fae51a9f4170334e8639e8dbfc0a54b, type: 3}
-  m_PrefabInstance: {fileID: 6599441593599840666}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6594734794769154532 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4742687578853502, guid: 6fae51a9f4170334e8639e8dbfc0a54b, type: 3}
   m_PrefabInstance: {fileID: 6599441593599840666}
   m_PrefabAsset: {fileID: 0}
