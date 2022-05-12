@@ -107,13 +107,11 @@ public class SimpleShoot : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                Destroy(hit.collider.gameObject);
                 audiosource.PlayOneShot(enemyDieSound);
             }
 
             if (hit.collider.gameObject.CompareTag("Boss"))
             {
-                Destroy(hit.collider.gameObject);
                 audiosource.PlayOneShot(enemyDieSound);
             }
         }
