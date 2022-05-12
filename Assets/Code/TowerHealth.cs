@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class TowerHealth : MonoBehaviour
 {
@@ -8,7 +10,8 @@ public class TowerHealth : MonoBehaviour
     bool alive = true;
     bool hurt = false;
 
-    public int playerNum = 1;
+    public Volume volume;
+    public Vignette vignette;
 
     void Start() 
     {
@@ -17,6 +20,7 @@ public class TowerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         TowerHit(other.gameObject);
+        
     }
 
     void TowerHit(GameObject other)
@@ -24,7 +28,8 @@ public class TowerHealth : MonoBehaviour
         if (alive && !hurt){
             if(other.tag == "Enemy"){
                 gm.TakeDamage(10);
-                if(alive){
+                StartCoroutine(HurtEffect());
+                if (alive){
                     StartCoroutine(GotHurt());
                 }else{
                     StartCoroutine(Dead());
@@ -35,6 +40,7 @@ public class TowerHealth : MonoBehaviour
         if (alive && !hurt){
             if(other.tag == "Boss"){
                 gm.TakeDamage(30);
+                StartCoroutine(HurtEffect());
                 if (alive){
                     StartCoroutine(GotHurt());
                 }else{
@@ -58,5 +64,12 @@ public class TowerHealth : MonoBehaviour
         alive = false;
 
         yield return new WaitForSeconds(.5f);
+    }
+
+    IEnumerator HurtEffect()
+    {
+        vignette.intensity.value = 0.18f;
+        yield return new WaitForSeconds(0.5f);
+        vignette.intensity.value = 0f;
     }
 }
