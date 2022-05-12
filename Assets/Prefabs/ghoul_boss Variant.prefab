@@ -203,5 +203,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   life: 5
-  damage: 25
-  CURRENT_SPEED: 0
+--- !u!114 &4932118313114870690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864075320304377440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6450f08be9d4622a9e4266042c2eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghoul: {fileID: 1241920339287432, guid: adc113aafa4de4eb09c485edf6340d36, type: 3}
