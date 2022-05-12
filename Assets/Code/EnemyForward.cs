@@ -6,9 +6,10 @@ public class EnemyForward : MonoBehaviour
     public float speed;
 
     Animator enemyAnimation;
+    public GameObject explosion;
 
-    private bool isMoving;
-    private bool isAttacking;
+    // private bool isMoving;
+    // private bool isAttacking;
 
     void Start() 
     {
@@ -30,16 +31,18 @@ public class EnemyForward : MonoBehaviour
 
     void Movement()
     {
-        isAttacking = false;
+        // isAttacking = false;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         enemyAnimation.SetBool("isMoving", true);
     }
 
     void Attack()
     {
-        isMoving = false;
-        isAttacking = true;
+        // isMoving = false;
+        // isAttacking = true;
         speed = 0;
         enemyAnimation.SetBool("isAttack", true);
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
