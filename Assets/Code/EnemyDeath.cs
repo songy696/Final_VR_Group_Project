@@ -43,7 +43,7 @@ public class EnemyDeath : MonoBehaviour
 
     IEnumerator hurt()
     {
-        animation.SetBool("isHurt", true);
+        animation.SetTrigger("isHurt");
         isHurt = true;
         enemyLife--;
         
@@ -55,6 +55,6 @@ public class EnemyDeath : MonoBehaviour
     void dead()
     {
         isDead = true;
-        animation.SetBool("isDead", true);
+        animation.SetTrigger("isDead");
     }
 }

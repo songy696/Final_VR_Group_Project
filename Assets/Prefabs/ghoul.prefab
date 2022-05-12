@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: -9073819786551549858}
   - component: {fileID: -4839027154343083635}
   - component: {fileID: -7717616667425384606}
+  - component: {fileID: -4676239139100844059}
   m_Layer: 0
   m_Name: ghoul
   m_TagString: Enemy
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  explosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
 --- !u!64 &-9073819786551549858
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1156,6 +1158,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4676239139100844059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241920339287432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad98609e22138427cb4877eac0e2165f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation: {fileID: 0}
+  enemyLife: 2
 --- !u!1 &1248850277375834
 GameObject:
   m_ObjectHideFlags: 0
