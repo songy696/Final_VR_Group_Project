@@ -7,31 +7,41 @@ public class EnemyController : MonoBehaviour
 
     Animator _animation;
 
-    public float speed;
+    public GameObject explosion;
+
+    TowerHealth _towerHealth;
+
     public int life;
+    private int damage;
+    private float speed;
+    private float CURRENT_SPEED;
 
     private bool isMoving = true;
     private bool isAttacking = false;
     private bool isHurt = false;
     private bool isDead = false;
 
+
     void Start() 
     {
+        _towerHealth = FindObjectOfType<TowerHealth>();  
         _animation = GetComponent<Animator>();
+
         SetStats();
     }
 
     void Update() 
     {
+        if (isHurt) {return;}
+
         if(isMoving)
         {   
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * CURRENT_SPEED * Time.deltaTime);
             _animation.SetBool("isMoving", true);
         } 
         else if(isAttacking)
         {
-            _animation.SetBool("isAttack", true);
-             StartCoroutine("DamageTaken", 2f);
+            StartCoroutine("AttackingTower");
         }
     }
 
@@ -40,14 +50,40 @@ public class EnemyController : MonoBehaviour
          if(this.gameObject.CompareTag("Boss"))
         {
             life = 5;
-            speed = .5f;
+            damage = 25;
+            speed = 1f;
+            CURRENT_SPEED = speed;
         }
 
         if(this.gameObject.CompareTag("Enemy"))
         {
             life = 2;
-            speed = 1f;
+            damage = 3;
+            speed = 2f;
+            CURRENT_SPEED = speed;
         }
+    }
+
+    IEnumerator AttackingTower()
+    {
+        isAttacking = false;
+        _animation.SetBool("isAttack", true);
+
+         if(this.gameObject.CompareTag("Enemy"))
+         {
+            yield return new WaitForSeconds(1.10f);
+            _towerHealth.ApplyDamageTower(damage);
+         }
+
+         if(this.gameObject.CompareTag("Boss"))
+        {  
+            yield return new WaitForSeconds(1.10f);
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+
+      isAttacking = true;
+
     }
 
 
@@ -64,12 +100,13 @@ public class EnemyController : MonoBehaviour
         } else {
             yield return new WaitForSeconds(1f);
             isHurt = false;
+            CURRENT_SPEED = speed;
         }
     }
 
     IEnumerator CleanEnemy()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
 
@@ -78,7 +115,7 @@ public class EnemyController : MonoBehaviour
     {
         if(other.gameObject.tag == "Tower")
         {
-            speed = 0;
+            CURRENT_SPEED = 0;
             isMoving = false;
             isAttacking = true;
         }
@@ -90,6 +127,8 @@ public class EnemyController : MonoBehaviour
         if(!isDead && !isHurt && other.gameObject.CompareTag("Bullet"))
         {
             isAttacking = false;
+            isMoving = false;
+            CURRENT_SPEED = 0;
             StartCoroutine("DamageTaken");
         }
     }
