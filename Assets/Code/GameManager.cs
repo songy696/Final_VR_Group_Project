@@ -53,15 +53,7 @@ public class GameManager : MonoBehaviour
          //   towerHealth[i] = 100;
         //}
     }
-/*
-    private void Update()
-    {
-        if (hurt == true)
-        {
-            StartCoroutine(HurtEffect());
-        }
-    }
-*/
+
 
     public void TakeDamage(int damage)
     {
