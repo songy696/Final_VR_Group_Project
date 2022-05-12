@@ -77,8 +77,9 @@ public class EnemyController : MonoBehaviour
 
          if(this.gameObject.CompareTag("Boss"))
         {  
-            yield return new WaitForSeconds(1.10f);
+            _towerHealth.ApplyDamageTower(damage);
             Instantiate(explosion, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
             Destroy(this.gameObject);
         }
 
