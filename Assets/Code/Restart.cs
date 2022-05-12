@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
-    private void Update() 
+    public string SceneName;
+
+    public void StartButton()
     {
-        if(Input.GetButtonDown("0")) {
-                SceneManager.LoadScene("Game2");
-            }
+        SceneManager.LoadScene(SceneName);
     }
 }

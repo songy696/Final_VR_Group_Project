@@ -35,31 +35,26 @@ public class EnemyDeath : MonoBehaviour
             StartCoroutine(hurt());
         }
         
-        if(isDead && enemyLife < 1)
+        if(enemyLife < 1)
         {
-            StartCoroutine(dead());
+            dead();
         }
     }
 
     IEnumerator hurt()
     {
+        animation.SetBool("isHurt", true);
         isHurt = true;
         enemyLife--;
-        animation.Play("hurt");
-
+        
         yield return new WaitForSeconds(2f);
 
         isHurt = false;
     }
 
-    IEnumerator dead()
+    void dead()
     {
         isDead = true;
-        animation.Play("die");
-        // audio.Play();
-
-        yield return new WaitForSeconds(1.1f);
-
-        Destroy(gameObject);
+        animation.SetBool("isDead", true);
     }
 }
