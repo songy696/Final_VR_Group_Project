@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 0df11995f202f4f729e1da89928339c3, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: c1dc2ca23da154045af81df89baa8457, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "A" to Restart
+  m_text: Press "A" to Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
   m_sharedMaterial: {fileID: 8558380666079051798, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
@@ -693,7 +693,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1054716591}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Died
+  m_text: Tower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
   m_sharedMaterial: {fileID: 8558380666079051798, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
@@ -747,8 +747,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3223,7 +3223,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3841,6 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a34c7e25a1647eb870a2580dd71e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 1
 --- !u!64 &1045241653
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3962,8 +3963,8 @@ RectTransform:
   m_LocalScale: {x: 0.049758002, y: 0.049758002, z: 0.049758002}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1888347934}
   - {fileID: 127766901}
+  - {fileID: 1888347934}
   - {fileID: 121443179}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -4713,8 +4714,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0.047002792, a: 1}
-  m_Intensity: 1.61
+  m_Color: {r: 0.6014151, g: 0.8018868, b: 0.7826107, a: 1}
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4753,7 +4754,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6105,7 +6106,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1054716591}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6132,7 +6133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Died
+  m_text: Tower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
   m_sharedMaterial: {fileID: 8558380666079051798, guid: 7f574f544b8c547638fced47756d08f3, type: 2}
@@ -6159,8 +6160,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 101
-  m_fontSizeBase: 101
+  m_fontSize: 153
+  m_fontSizeBase: 153
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

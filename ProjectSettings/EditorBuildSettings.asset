@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game2.unity
     guid: b8fe5c1390afa414ab178969f530a42c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DeadScene.unity
     guid: 29368af52b0ed4f30b99266eb4bdc6f1
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 4bb90336aa62345d391a55dea9a1a2e1
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: dcc92fd61f7654c518508761892b50da
