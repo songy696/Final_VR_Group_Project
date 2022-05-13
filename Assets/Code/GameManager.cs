@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     
     public int[] towerHealth;
     public RectTransform[] healthBars;
-    bool hurt = false;
-
 
     public Image fill;
 
