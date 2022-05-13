@@ -28,9 +28,12 @@ public class SimpleShoot : MonoBehaviour
 
     public AudioClip enemyDieSound;
 
+    EnemyController _enemycontroller;
 
     void Start()
     {
+
+        _enemycontroller = FindObjectOfType<EnemyController>();  
         audiosource = GetComponent<AudioSource>();
         audiosource.clip = clip;
 
@@ -48,6 +51,13 @@ public class SimpleShoot : MonoBehaviour
     {
         //If you want a different input, change it here
         if (ovrGrabbable.isGrabbed && OVRInput.GetDown(shootingBtn, ovrGrabbable.grabbedBy.GetController()))
+        {
+            //Calls animation on the gun that has the relevant animation events that will fire
+            gunAnimator.SetTrigger("Fire");
+            RaycastGun();
+        }
+
+        if (Input.GetButtonDown("Jump"))
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
@@ -105,14 +115,10 @@ public class SimpleShoot : MonoBehaviour
 
         if(Physics.Raycast (barrelLocation.position, barrelLocation.forward, out hit))
         {
-            if (hit.collider.gameObject.CompareTag("Enemy"))
+            if (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("Boss"))
             {
-                audiosource.PlayOneShot(enemyDieSound);
-            }
-
-            if (hit.collider.gameObject.CompareTag("Boss"))
-            {
-                audiosource.PlayOneShot(enemyDieSound);
+                //_enemycontroller.BulletHit(hit.collider.gameObject);
+                //audiosource.PlayOneShot(enemyDieSound);
             }
         }
     }
