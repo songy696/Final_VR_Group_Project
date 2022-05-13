@@ -12,20 +12,26 @@ public class EnemyController : MonoBehaviour
     TowerHealth _towerHealth;
 
     public int life;
-    private int damage;
-    private float speed;
-    private float CURRENT_SPEED;
+    public int damage;
+    public float speed;
+    public float CURRENT_SPEED;
 
     private bool isMoving = true;
     private bool isAttacking = false;
     private bool isHurt = false;
     private bool isDead = false;
+    private bool collidedTower = false;
+
+
+    public AudioSource _audiosource;
+    public AudioClip hurtSound;
 
 
     void Start() 
     {
         _towerHealth = FindObjectOfType<TowerHealth>();  
         _animation = GetComponent<Animator>();
+        _audiosource = GetComponent<AudioSource>();
 
         SetStats();
     }
@@ -64,6 +70,58 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
+
+    IEnumerator DamageTaken()
+    {
+        isHurt = true;
+        _animation.SetBool("isHurt", true);
+        life--;
+        if(life == 0)
+        {
+            _animation.SetBool("isDead", true);
+            isDead = true;
+            StartCoroutine("CleanEnemy");
+        } else {
+            yield return new WaitForSeconds(1f);
+            isMoving = true;
+            isHurt = false;
+            CURRENT_SPEED = speed;
+        }
+    }
+
+    //should this be a trigget or collider?
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.gameObject.tag == "Tower")
+        {
+            collidedTower = true;
+            CURRENT_SPEED = 0;
+            isMoving = false;
+            isAttacking = true;
+        } else 
+        {
+            print("else tower");
+            CURRENT_SPEED = speed;
+            collidedTower = false;
+            isMoving = true;
+            isAttacking = false;
+        }
+    }
+
+     private void OnCollisionEnter(Collision other) 
+    {
+         if(isDead == false && other.gameObject.tag == "Bullet")
+        {
+            print("collided bullet");
+            _audiosource.PlayOneShot(hurtSound);
+            isAttacking = false;
+            isMoving = false;
+            CURRENT_SPEED = 0;
+            StartCoroutine("DamageTaken");
+        }
+    }
+
     IEnumerator AttackingTower()
     {
         isAttacking = false;
@@ -79,59 +137,17 @@ public class EnemyController : MonoBehaviour
         {  
             _towerHealth.ApplyDamageTower(damage);
             Instantiate(explosion, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
             Destroy(this.gameObject);
         }
 
-      isAttacking = true;
+        isAttacking = true;
 
-    }
-
-
-    IEnumerator DamageTaken()
-    {
-        isHurt = true;
-        _animation.SetBool("isHurt", true);
-        life--;
-        if(life == 0)
-        {
-            _animation.SetBool("isDead", true);
-            isDead = true;
-            StartCoroutine("CleanEnemy");
-        } else {
-            yield return new WaitForSeconds(1f);
-            isHurt = false;
-            CURRENT_SPEED = speed;
-        }
     }
 
     IEnumerator CleanEnemy()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
-    }
-
-    //should this be a trigget or collider?
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.gameObject.tag == "Tower")
-        {
-            CURRENT_SPEED = 0;
-            isMoving = false;
-            isAttacking = true;
-        }
-    }
-    
-    //should this be a trigget or collider?
-    private void OnCollisionEnter(Collision other) 
-    {
-        if(!isDead && !isHurt && other.gameObject.CompareTag("Bullet"))
-        {
-            isAttacking = false;
-            isMoving = false;
-            CURRENT_SPEED = 0;
-            StartCoroutine("DamageTaken");
-        }
     }
 
 }
