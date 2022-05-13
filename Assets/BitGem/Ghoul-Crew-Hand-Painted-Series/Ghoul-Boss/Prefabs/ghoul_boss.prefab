@@ -2670,8 +2670,6 @@ GameObject:
   - component: {fileID: 4562497920047096}
   - component: {fileID: 95369732463110802}
   - component: {fileID: -5824354972768964275}
-  - component: {fileID: 2854906065673377958}
-  - component: {fileID: 9015597477622235869}
   m_Layer: 0
   m_Name: ghoul_boss
   m_TagString: Boss
@@ -2730,32 +2728,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 09dc880d0fd1f48238ab948cc1e1986f, type: 3}
---- !u!114 &2854906065673377958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944461701752270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24aa684f2b9cd4b85b845f2371503fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
---- !u!114 &9015597477622235869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944461701752270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad98609e22138427cb4877eac0e2165f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLife: 5
 --- !u!1 &1950163368151042
 GameObject:
   m_ObjectHideFlags: 0

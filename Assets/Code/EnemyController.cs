@@ -12,9 +12,9 @@ public class EnemyController : MonoBehaviour
     TowerHealth _towerHealth;
 
     public int life;
-    public int damage;
-    public float speed;
-    public float CURRENT_SPEED;
+    private int damage;
+    private float speed;
+    private float CURRENT_SPEED;
 
     private bool isMoving = true;
     private bool isAttacking = false;

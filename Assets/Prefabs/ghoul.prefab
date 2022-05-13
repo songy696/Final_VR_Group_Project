@@ -1157,8 +1157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   life: 2
-  damage: 0
-  CURRENT_SPEED: 0
+  _audiosource: {fileID: -7717616667425384606}
+  hurtSound: {fileID: 8300000, guid: e00f6a114166dc349990e1f75c8fd615, type: 3}
 --- !u!1 &1248850277375834
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,23 +55,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2854906065673377958, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
-    - target: {fileID: 9015597477622235869, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
-      propertyPath: animation
-      value: 
-      objectReference: {fileID: 1768433194003730748}
-    m_RemovedComponents:
-    - {fileID: 2854906065673377958, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
-    - {fileID: 9015597477622235869, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
---- !u!95 &1768433194003730748 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95369732463110802, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
-  m_PrefabInstance: {fileID: 1862360332263209902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1864075320304377440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1944461701752270, guid: d9c686f862ff7406ea2fa3a0285ba6ec, type: 3}
@@ -189,6 +174,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4932118313114870690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864075320304377440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6450f08be9d4622a9e4266042c2eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghoul: {fileID: 1241920339287432, guid: adc113aafa4de4eb09c485edf6340d36, type: 3}
 --- !u!114 &4976889932818480861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,16 +201,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   life: 5
---- !u!114 &4932118313114870690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864075320304377440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6450f08be9d4622a9e4266042c2eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghoul: {fileID: 1241920339287432, guid: adc113aafa4de4eb09c485edf6340d36, type: 3}
+  _audiosource: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: e00f6a114166dc349990e1f75c8fd615, type: 3}

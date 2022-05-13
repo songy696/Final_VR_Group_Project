@@ -85,9 +85,12 @@ public class SimpleShoot : MonoBehaviour
 
         // Create a bullet and add force on it in direction of the barrel
         //Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-        Instantiate(bulletPrefab, barrelLocation.position, Quaternion.identity).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        //Instantiate(bulletPrefab, barrelLocation.position, Quaternion.identity).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        //Destroy(bulletPrefab, destroyTimer*2); //I might remove this later
 
-        Destroy(bulletPrefab, destroyTimer*2); //I might remove this later
+        GameObject newBullet = Instantiate(bulletPrefab, barrelLocation.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        Destroy(newBullet, destroyTimer*2);
     }
 
     //This function creates a casing at the ejection slot
