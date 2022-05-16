@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-//using UnityEngine.Rendering;
-//using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
-    //public Volume volume;
-    //public Vignette vignette;
+    PostProcessVolume m_Volume;
+    Vignette m_Vignette;
     int towerInGame = 1;
     
     public int[] towerHealth;
@@ -42,21 +41,24 @@ public class GameManager : MonoBehaviour
     {
         currentHP = MaxHP;
         SetMaxHealth(MaxHP);
-        //volume = GetComponent<Volume>();
-        //volume.profile.TryGet(out vignette);
+        m_Vignette = ScriptableObject.CreateInstance<Vignette>();
+        m_Vignette.enabled.Override(true);
+        m_Vignette.intensity.Override(1f);
+
+        m_Volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, m_Vignette);
 
         //towerHealth = new int[towerInGame];
         //for (int i = 0; i < towerHealth.Length; i++)
         //{
-         //   towerHealth[i] = 100;
+        //   towerHealth[i] = 100;
         //}
     }
 
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(HurtEffect());
         currentHP -= damage;
-
         SetHealth(currentHP);
 
         if(currentHP <= 0)
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
     IEnumerator CheckRoundOver()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("DeadScene");
+        SceneManager.LoadScene("GameOverScene");
     }
     /*
         public bool UpdateHealth(int hitTower, int damage)
@@ -89,13 +91,13 @@ public class GameManager : MonoBehaviour
                 return false;
             }
         }
-    /*
-        IEnumerator HurtEffect() {
-            vignette.intensity.value = 0.18f;
-            yield return new WaitForSeconds(0.5f);
-            vignette.intensity.value = 0f;
-        }
 
-            */
+    */
+
+    IEnumerator HurtEffect() {
+        m_Vignette.intensity.value = 0.3f;
+        yield return new WaitForSeconds(0.5f);
+        m_Vignette.intensity.value = 0;
+    } 
 
 }
